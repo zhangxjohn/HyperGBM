@@ -3,7 +3,8 @@
 
 """
 
-from hypernets.core.ops import ModuleChoice, Optional, HyperInput, Real
+from hypernets.core.ops import ModuleChoice, Optional, HyperInput
+from hypernets.core.search_space import Real
 from hypernets.core.search_space import Choice
 from hypernets.core.search_space import HyperSpace
 from hypergbm.estimators import LightGBMDaskEstimator, XGBoostDaskEstimator
@@ -76,9 +77,9 @@ def numeric_pipeline_complex(impute_strategy=None, seq_no=0):
                             fill_value=0)
     scaler_options = ModuleChoice(
         [
-            StandardScaler(name=f'numeric_standard_scaler_{seq_no}'),
-            MinMaxScaler(name=f'numeric_minmax_scaler_{seq_no}'),
-            MaxAbsScaler(name=f'numeric_maxabs_scaler_{seq_no}'),
+            # StandardScaler(name=f'numeric_standard_scaler_{seq_no}'),
+            # MinMaxScaler(name=f'numeric_minmax_scaler_{seq_no}'),
+            # MaxAbsScaler(name=f'numeric_maxabs_scaler_{seq_no}'),
             RobustScaler(name=f'numeric_robust_scaler_{seq_no}')
         ], name=f'numeric_or_scaler_{seq_no}'
     )
